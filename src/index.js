@@ -12,6 +12,7 @@ defaultModules.set(PNotifyMobile, {})
 const newApiService = new ApiService();
 
 refs.searchForm.addEventListener('submit', onSearch);
+refs.seeMore.addEventListener('click', onLoadMore)
 
 function onSearch(e){
 e.preventDefault();
@@ -19,6 +20,10 @@ clearGallery()
 newApiService.query = e.currentTarget.elements.query.value;
 newApiService.resetPage();
 newApiService.fetchGallery().then(createGallery);
+}
+
+function onLoadMore(){
+    newApiService.fetchGallery().then(createGallery);
 }
 
 function createGallery(data){
@@ -29,3 +34,8 @@ function clearGallery(){
     refs.gallery.innerHTML=''  
 }
 
+const element = document.querySelector('.photo-card');
+element.scrollIntoView({
+  behavior: 'smooth',
+  block: 'end',
+});
