@@ -1,0 +1,45 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.gallery{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.photo-card{
+  width: 320px; 
+  background-color: rgb(7, 123, 168);
+  border-radius: 5px;
+}
+
+.photo-card:nth-child(-n+6){
+margin-bottom: 10px;
+}
+
+.stats{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.stats-item{
+  width: 30px;
+  height: 30px;
+  color: rgb(0, 255, 255);
+}
+
+.material-icons{
+  width: 25px;
+  height: 25px;
+  color: rgb(7, 202, 7);
+}
