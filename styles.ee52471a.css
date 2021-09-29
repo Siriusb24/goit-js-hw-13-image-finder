@@ -1,2 +1,0 @@
-html{box-sizing:border-box}*,:after,:before{box-sizing:inherit}.gallery{display:flex;flex-wrap:wrap;justify-content:space-around;list-style:none}.photo-card{width:320px;background-color:#077ba8;border-radius:5px}.photo-card:nth-child(-n+6){margin-bottom:10px}.stats{display:flex;flex-wrap:wrap;justify-content:space-around;align-items:center}.stats-item{width:30px;height:30px;color:#0ff}.material-icons{width:25px;height:25px;color:#07ca07}
-/*# sourceMappingURL=/goit-js-hw-12-countries/styles.ee52471a.css.map */
