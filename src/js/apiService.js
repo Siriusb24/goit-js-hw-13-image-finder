@@ -9,6 +9,7 @@ export default class ApiService{
 
         return fetch(BASE_URL).then(res => res.json()).then(data => {
             this.incrementPage();
+            console.log(data);
             return data});
     }
 

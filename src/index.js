@@ -1,9 +1,9 @@
-
-import galleryTamplate from './templates/countriesTemplate.hbs'
+import galleryTamplate from './templates/galleryTemplate.hbs'
 import refs from './js/refs'
 import ApiService from './js/apiService'
+//import "./js/lightbox"
 
-import { alert, error, defaultModules } from '@pnotify/core/dist/PNotify.js'
+import { alert, error, success, defaultModules } from '@pnotify/core/dist/PNotify.js'
 import * as PNotifyMobile from '@pnotify/mobile/dist/PNotifyMobile.js'
 import '@pnotify/core/dist/PNotify.css'
 import '@pnotify/core/dist/BrightTheme.css'
@@ -19,23 +19,31 @@ e.preventDefault();
 clearGallery()
 newApiService.query = e.currentTarget.elements.query.value;
 newApiService.resetPage();
-newApiService.fetchGallery().then(createGallery);
+newApiService.fetchGallery().then(createGallery).catch(onError);
 }
 
 function onLoadMore(){
-    newApiService.fetchGallery().then(createGallery);
+    newApiService.fetchGallery().then(createGallery).catch(onError);
 }
 
 function createGallery(data){
-refs.gallery.insertAdjacentHTML("beforeend", galleryTamplate(data))
-}
+    if(data.total === 0){
+        refs.gallery.innerHTML = ''
+        alert({text: `Incorrect search query entered. Images not found!`});
+        return} else if(data.total > 0){
+    success({text: `Photos successfully found`});
+    refs.gallery.insertAdjacentHTML("beforeend", galleryTamplate(data))
+}}
 
 function clearGallery(){
     refs.gallery.innerHTML=''  
 }
 
-const element = document.querySelector('.photo-card');
-element.scrollIntoView({
-  behavior: 'smooth',
-  block: 'end',
-});
+function onError(err){
+    refs.gallery.innerHTML = '';
+    error({text:`Oops, samething went wrong`});
+    return 
+}
+
+
+
