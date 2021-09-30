@@ -75,20 +75,23 @@ margin-bottom: 10px;
 }
 
 .stats{
+  position: relative;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   border-radius: 5px;
 }
 
 .stats-item{
-  width: 40px;
-  height: 40px;
   color: rgb(0, 0, 0);
 }
 
 .material-icons{
+  position: absolute;
+  bottom: 45px;
+  width: 10px;
+  height: 10px;
   color: rgb(0, 0, 0);
 }
 
