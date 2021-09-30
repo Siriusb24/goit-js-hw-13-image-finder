@@ -1,7 +1,7 @@
 {{#each this.hits}}
-<li class="card-item">
+<li class="card-item" id="{{id}}">
   <div class="photo-card">
-        <img src="{{webformatURL}}" alt="{{tags}}" srcset={{largeImageURL}} class='img'/>
+        <img src="{{webformatURL}}" alt="{{tags}}" data-source={{largeImageURL}} class='img'/>
       
         <div class="stats">
           <p class="stats-item">

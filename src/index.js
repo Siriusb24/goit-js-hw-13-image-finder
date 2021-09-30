@@ -24,6 +24,8 @@ newApiService.fetchGallery().then(createGallery).catch(onError);
 
 function onLoadMore(){
     newApiService.fetchGallery().then(createGallery).catch(onError);
+    const lastElId = data[data.length - 1].id;
+    scrollEnd(lastElId);
 }
 
 function createGallery(data){
@@ -34,6 +36,14 @@ function createGallery(data){
     success({text: `Photos successfully found`});
     refs.gallery.insertAdjacentHTML("beforeend", galleryTamplate(data))
 }}
+
+
+function scrollEnd(id) {
+    document.getElementById(id).scrollIntoView({
+  behavior: 'smooth',
+  block: 'end',
+}); 
+}
 
 function clearGallery(){
     refs.gallery.innerHTML=''  
