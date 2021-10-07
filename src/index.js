@@ -24,7 +24,7 @@ newApiService.fetchGallery().then(createGallery).catch(onError);
 
 function onLoadMore(){
     newApiService.fetchGallery().then(createGallery).catch(onError);
-    const lastElId = data[data.length - 1].id;
+    const lastElId = document.getElementById("list-js")
     scrollEnd(lastElId);
 }
 
@@ -39,7 +39,7 @@ function createGallery(data){
 
 
 function scrollEnd(id) {
-    document.getElementById(id).scrollIntoView({
+    id.lastElementChild.scrollIntoView({
   behavior: 'smooth',
   block: 'end',
 }); 
